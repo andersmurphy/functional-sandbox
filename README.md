@@ -1,0 +1,1 @@
+A sandbox Java/Koltlin project for messing around with functional programming concepts.
