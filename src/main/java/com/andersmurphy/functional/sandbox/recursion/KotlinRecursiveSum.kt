@@ -1,4 +1,4 @@
-package com.andersmurphy.functional.sandbox
+package com.andersmurphy.functional.sandbox.recursion
 
 /**
  * Created by anders on 24/09/15.

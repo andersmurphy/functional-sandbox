@@ -1,5 +1,7 @@
-package com.andersmurphy.functional.sandbox;
+package com.andersmurphy.functional.sandbox.recursion;
 
+import com.andersmurphy.functional.sandbox.recursion.KotlinRecursiveSum;
+import com.andersmurphy.functional.sandbox.recursion.RecursiveSum;
 import org.junit.Test;
 
 import java.util.ArrayList;

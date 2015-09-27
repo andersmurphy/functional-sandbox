@@ -1,5 +1,8 @@
-package com.andersmurphy.functional.sandbox;
+package com.andersmurphy.functional.sandbox.functions;
 
+import com.andersmurphy.functional.sandbox.functions.Function2Return;
+import com.andersmurphy.functional.sandbox.functions.FunctionReturn;
+import com.andersmurphy.functional.sandbox.functions.FunctionVoid;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

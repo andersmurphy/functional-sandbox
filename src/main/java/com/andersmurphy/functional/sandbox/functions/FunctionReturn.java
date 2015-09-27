@@ -1,4 +1,4 @@
-package com.andersmurphy.functional.sandbox;
+package com.andersmurphy.functional.sandbox.functions;
 
 /**
  * Created by anders on 24/09/15.

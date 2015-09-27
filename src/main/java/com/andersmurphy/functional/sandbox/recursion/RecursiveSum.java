@@ -1,4 +1,4 @@
-package com.andersmurphy.functional.sandbox;
+package com.andersmurphy.functional.sandbox.recursion;
 
 import java.util.List;
 
