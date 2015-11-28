@@ -38,4 +38,16 @@ public class RecursiveSumTest {
 
         assertThat(recursion.sum(integerList), is(equalTo(24)));
     }
+
+    @Test
+    public void kotlin_tail_recurisve_sum() throws Exception {
+        List<Integer> integerList = new ArrayList<Integer>();
+        integerList.add(5);
+        integerList.add(10);
+        integerList.add(9);
+
+        KotlinRecursiveSum recursion = new KotlinRecursiveSum();
+
+        assertThat(recursion.tailrecSum(integerList), is(equalTo(24)));
+    }
 }
