@@ -31,4 +31,18 @@ public class StreamExamplesTest {
 		evenNumbers.add(4);
 		assertThat(onlyEvenNumbers,is(equalTo(evenNumbers)));
 	}
+
+	@Test
+	public void numbers_to_strings() throws Exception {
+		List<Integer> numbers = new ArrayList<Integer>();
+		numbers.add(22);
+		numbers.add(43);
+
+		List<String> actual = StreamExamples.integerListToString(numbers);
+
+		List<String> expected = new ArrayList<>();
+		expected.add("22");
+		expected.add("43");
+		assertThat(actual,is(equalTo(expected)));
+	}
 }

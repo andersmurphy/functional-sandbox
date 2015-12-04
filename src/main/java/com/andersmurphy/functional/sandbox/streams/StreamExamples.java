@@ -16,4 +16,8 @@ public final class StreamExamples {
 		Stream<Integer> streamOfNumbers = stream(numbers);
 		return streamOfNumbers.filter(number -> number % 2 == 0).toList().toJavaList();
 	}
+
+	public static List<String> integerListToString(List<Integer> numbers) {
+		return stream(numbers).map(Object::toString).toList().toJavaList();
+	}
 }
