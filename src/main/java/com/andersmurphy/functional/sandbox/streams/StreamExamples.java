@@ -1,6 +1,8 @@
 package com.andersmurphy.functional.sandbox.streams;
 
+import fj.F;
 import fj.data.Stream;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +17,7 @@ public final class StreamExamples {
 
 	public static List<Integer> filterOddNumbers(List<Integer> numbers) {
 		Stream<Integer> streamOfNumbers = stream(numbers);
-		return streamOfNumbers.filter(number -> number % 2 == 0).toList().toJavaList();
+		return streamOfNumbers.filter(number -> isEven(number)).toList().toJavaList();
 	}
 
 	public static List<String> integerListToString(List<Integer> numbers) {
@@ -27,7 +29,11 @@ public final class StreamExamples {
 	}
 
 	public static int findFirstEvenOrReturnZero(List<Integer> numbers) {
-		return stream(numbers).find(number -> number % 2 == 0).orSome(0);
+		return stream(numbers).find(number -> isEven(number)).orSome(0);
+	}
+
+	private static boolean isEven(int number) {
+		return number % 2 == 0;
 	}
 
 }
