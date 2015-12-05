@@ -15,7 +15,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class StreamExamplesTest {
 
 	@Test
-	public void filterOddNumbers() throws Exception {
+	public void filter_odd_numbers_examples() throws Exception {
 		List<Integer> numbers = new ArrayList<Integer>();
 		numbers.add(1);
 		numbers.add(2);
@@ -33,7 +33,7 @@ public class StreamExamplesTest {
 	}
 
 	@Test
-	public void numbers_to_strings() throws Exception {
+	public void numbers_to_strings_example() throws Exception {
 		List<Integer> numbers = new ArrayList<Integer>();
 		numbers.add(22);
 		numbers.add(43);
@@ -44,5 +44,19 @@ public class StreamExamplesTest {
 		expected.add("22");
 		expected.add("43");
 		assertThat(actual,is(equalTo(expected)));
+	}
+
+	@Test
+	public void using_range_to_count_example() throws Exception {
+		List<Integer> expected = new ArrayList<Integer>();
+		expected.add(1);
+		expected.add(2);
+		expected.add(3);
+		expected.add(4);
+		expected.add(5);
+
+		List<Integer> actual = StreamExamples.countTo(5);
+
+		assertThat(actual, is(equalTo(expected)));
 	}
 }

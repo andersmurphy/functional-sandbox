@@ -20,4 +20,9 @@ public final class StreamExamples {
 	public static List<String> integerListToString(List<Integer> numbers) {
 		return stream(numbers).map(Object::toString).toList().toJavaList();
 	}
+
+	public static List<Integer> countTo(int number) {
+		return Stream.range(1, number +1).toList().toJavaList();
+	}
+
 }
