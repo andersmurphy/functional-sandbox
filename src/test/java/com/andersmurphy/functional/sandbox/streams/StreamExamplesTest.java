@@ -73,4 +73,11 @@ public class StreamExamplesTest {
 
 		assertThat(firstEvenNumber,is(equalTo(2)));
 	}
+
+	@Test
+	public void using_exists_to_check_if_number_is_prime() throws Exception {
+		assertThat(StreamExamples.isPrime(7),is(equalTo(true)));
+		assertThat(StreamExamples.isPrime(4),is(equalTo(false)));
+		assertThat(StreamExamples.isPrime(13),is(equalTo(true)));
+	}
 }

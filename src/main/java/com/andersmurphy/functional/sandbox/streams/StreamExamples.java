@@ -32,8 +32,11 @@ public final class StreamExamples {
 		return stream(numbers).find(number -> isEven(number)).orSome(0);
 	}
 
+	public static boolean isPrime(int number) {
+		return !Stream.range(2, number).exists(currentNumber -> number % currentNumber == 0);
+	}
+
 	private static boolean isEven(int number) {
 		return number % 2 == 0;
 	}
-
 }
