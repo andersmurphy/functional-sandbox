@@ -96,4 +96,19 @@ public class StreamExamplesTest {
 		String expected = "one two three four five";
 		assertThat(actual, is(equalTo(expected)));
 	}
+
+
+	@Test
+	public void using_suming_numbers() throws Exception {
+		List<Integer> numbers = new ArrayList<>();
+		numbers.add(1);
+		numbers.add(2);
+		numbers.add(3);
+		numbers.add(4);
+		numbers.add(5);
+
+		int sum = stream(numbers).foldLeft1((a,b) -> a + b);
+
+		assertThat(sum,is(equalTo(15)));
+	}
 }
