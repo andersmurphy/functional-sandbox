@@ -17,7 +17,7 @@ public final class StreamExamples {
 
 	public static List<Integer> filterOddNumbers(List<Integer> numbers) {
 		Stream<Integer> streamOfNumbers = stream(numbers);
-		return streamOfNumbers.filter(number -> isEven(number)).toList().toJavaList();
+		return streamOfNumbers.filter(StreamExamples::isEven).toList().toJavaList();
 	}
 
 	public static List<String> integerListToString(List<Integer> numbers) {
@@ -29,7 +29,7 @@ public final class StreamExamples {
 	}
 
 	public static int findFirstEvenOrReturnZero(List<Integer> numbers) {
-		return stream(numbers).find(number -> isEven(number)).orSome(0);
+		return stream(numbers).find(StreamExamples::isEven).orSome(0);
 	}
 
 	public static boolean isPrime(int number) {

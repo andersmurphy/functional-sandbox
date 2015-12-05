@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static fj.data.Stream.stream;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -34,7 +35,7 @@ public class StreamExamplesTest {
 
 	@Test
 	public void numbers_to_strings() throws Exception {
-		List<Integer> numbers = new ArrayList<Integer>();
+		List<Integer> numbers = new ArrayList<>();
 		numbers.add(22);
 		numbers.add(43);
 
@@ -48,7 +49,7 @@ public class StreamExamplesTest {
 
 	@Test
 	public void using_range_to_count() throws Exception {
-		List<Integer> expected = new ArrayList<Integer>();
+		List<Integer> expected = new ArrayList<>();
 		expected.add(1);
 		expected.add(2);
 		expected.add(3);
@@ -62,7 +63,7 @@ public class StreamExamplesTest {
 
 	@Test
 	public void using_find_to_find_first_even_number() throws Exception {
-		List<Integer> numbers = new ArrayList<Integer>();
+		List<Integer> numbers = new ArrayList<>();
 		numbers.add(1);
 		numbers.add(2);
 		numbers.add(3);
@@ -79,5 +80,20 @@ public class StreamExamplesTest {
 		assertThat(StreamExamples.isPrime(7),is(equalTo(true)));
 		assertThat(StreamExamples.isPrime(4),is(equalTo(false)));
 		assertThat(StreamExamples.isPrime(13),is(equalTo(true)));
+	}
+
+	@Test
+	public void using_foldleft1_to_concatonate_a_list_of_strings() throws Exception {
+		List<String> words = new ArrayList<>();
+		words.add("one");
+		words.add("two");
+		words.add("three");
+		words.add("four");
+		words.add("five");
+
+		String actual = stream(words).foldLeft1((a,b) -> a + " " + b);
+
+		String expected = "one two three four five";
+		assertThat(actual, is(equalTo(expected)));
 	}
 }
