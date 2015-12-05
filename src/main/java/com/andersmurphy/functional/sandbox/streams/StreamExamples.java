@@ -4,6 +4,7 @@ import fj.data.Stream;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static fj.data.Stream.stream;
 
@@ -22,7 +23,11 @@ public final class StreamExamples {
 	}
 
 	public static List<Integer> countTo(int number) {
-		return Stream.range(1, number +1).toList().toJavaList();
+		return Stream.range(1, number + 1).toList().toJavaList();
+	}
+
+	public static int findFirstEvenOrReturnZero(List<Integer> numbers) {
+		return stream(numbers).find(number -> number % 2 == 0).orSome(0);
 	}
 
 }

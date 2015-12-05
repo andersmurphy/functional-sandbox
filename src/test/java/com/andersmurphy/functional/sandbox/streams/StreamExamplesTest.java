@@ -15,7 +15,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class StreamExamplesTest {
 
 	@Test
-	public void filter_odd_numbers_examples() throws Exception {
+	public void filter_odd_numbers() throws Exception {
 		List<Integer> numbers = new ArrayList<Integer>();
 		numbers.add(1);
 		numbers.add(2);
@@ -33,7 +33,7 @@ public class StreamExamplesTest {
 	}
 
 	@Test
-	public void numbers_to_strings_example() throws Exception {
+	public void numbers_to_strings() throws Exception {
 		List<Integer> numbers = new ArrayList<Integer>();
 		numbers.add(22);
 		numbers.add(43);
@@ -47,7 +47,7 @@ public class StreamExamplesTest {
 	}
 
 	@Test
-	public void using_range_to_count_example() throws Exception {
+	public void using_range_to_count() throws Exception {
 		List<Integer> expected = new ArrayList<Integer>();
 		expected.add(1);
 		expected.add(2);
@@ -58,5 +58,19 @@ public class StreamExamplesTest {
 		List<Integer> actual = StreamExamples.countTo(5);
 
 		assertThat(actual, is(equalTo(expected)));
+	}
+
+	@Test
+	public void using_find_to_find_first_even_number() throws Exception {
+		List<Integer> numbers = new ArrayList<Integer>();
+		numbers.add(1);
+		numbers.add(2);
+		numbers.add(3);
+		numbers.add(4);
+		numbers.add(5);
+
+		int firstEvenNumber = StreamExamples.findFirstEvenOrReturnZero(numbers);
+
+		assertThat(firstEvenNumber,is(equalTo(2)));
 	}
 }
