@@ -1,5 +1,7 @@
 package com.andersmurphy.functional.sandbox.streams;
 
+import fj.P2;
+import fj.data.Stream;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -110,5 +112,22 @@ public class StreamExamplesTest {
 		int sum = stream(numbers).foldLeft1((a,b) -> a + b);
 
 		assertThat(sum,is(equalTo(15)));
+	}
+
+	@Test
+	public void using_split_to_create_a_tuple_with_two_streams() throws Exception {
+		List<Integer> numbers = new ArrayList<>();
+		numbers.add(1);
+		numbers.add(2);
+		numbers.add(3);
+		numbers.add(4);
+		numbers.add(5);
+
+		P2<Stream<Integer>, Stream<Integer>> twoStreams = stream(numbers).split(a -> a > 3);
+		List<Integer> threeOrLess = twoStreams._1().toList().toJavaList();
+		List<Integer> greaterThanThree = twoStreams._2().toList().toJavaList();
+
+		assertThat(greaterThanThree,is(equalTo(fj.data.List.list(4,5).toJavaList())));
+		assertThat(threeOrLess,is(equalTo(fj.data.List.list(1,2,3).toJavaList())));
 	}
 }
