@@ -7,6 +7,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static fj.data.List.list;
 import static fj.data.Stream.stream;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
@@ -127,7 +128,20 @@ public class StreamExamplesTest {
 		List<Integer> threeOrLess = twoStreams._1().toList().toJavaList();
 		List<Integer> greaterThanThree = twoStreams._2().toList().toJavaList();
 
-		assertThat(greaterThanThree,is(equalTo(fj.data.List.list(4,5).toJavaList())));
-		assertThat(threeOrLess,is(equalTo(fj.data.List.list(1,2,3).toJavaList())));
+		assertThat(greaterThanThree,is(equalTo(list(4,5).toJavaList())));
+		assertThat(threeOrLess,is(equalTo(list(1,2,3).toJavaList())));
+	}
+
+	@Test
+	public void using_reduce_left_to_find_the_largest_monster_in_the_list() throws Exception {
+		List<String> monsters = new ArrayList<>();
+		monsters.add("orc");
+		monsters.add("troll");
+		monsters.add("dragon");
+
+		String biggestMonster =stream(monsters)
+				.foldLeft1((String a, String b) -> a.length() > b.length() ? a : b);
+
+		assertThat(biggestMonster, is(equalTo("dragon")));
 	}
 }
