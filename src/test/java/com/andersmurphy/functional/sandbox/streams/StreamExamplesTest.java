@@ -19,7 +19,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class StreamExamplesTest {
 
 	@Test
-	public void filter_odd_numbers() throws Exception {
+	public void using_filter_to_filter_odd_numbers() throws Exception {
 		List<Integer> numbers = new ArrayList<Integer>();
 		numbers.add(1);
 		numbers.add(2);
@@ -37,7 +37,7 @@ public class StreamExamplesTest {
 	}
 
 	@Test
-	public void numbers_to_strings() throws Exception {
+	public void using_map_to_map_numbers_to_strings() throws Exception {
 		List<Integer> numbers = new ArrayList<>();
 		numbers.add(22);
 		numbers.add(43);
@@ -86,7 +86,7 @@ public class StreamExamplesTest {
 	}
 
 	@Test
-	public void using_foldleft1_to_concatonate_a_list_of_strings() throws Exception {
+	public void using_reduce_left_to_concatonate_a_list_of_strings() throws Exception {
 		List<String> words = new ArrayList<>();
 		words.add("one");
 		words.add("two");
@@ -102,7 +102,7 @@ public class StreamExamplesTest {
 
 
 	@Test
-	public void using_suming_numbers() throws Exception {
+	public void using_reduce_left_to_sum_numbers() throws Exception {
 		List<Integer> numbers = new ArrayList<>();
 		numbers.add(1);
 		numbers.add(2);
