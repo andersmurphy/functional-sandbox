@@ -144,4 +144,28 @@ public class StreamExamplesTest {
 
 		assertThat(biggestMonster, is(equalTo("dragon")));
 	}
+
+	@Test
+	public void using_bind_to_flatten_a_list_of_lists() throws Exception {
+		List<String> monsters = new ArrayList<>();
+		monsters.add("orc");
+		monsters.add("troll");
+		monsters.add("dragon");
+
+		List<String> heroes = new ArrayList<>();
+		heroes.add("fighter");
+		heroes.add("thief");
+		heroes.add("wizard");
+
+		List<List<String>> heroesAndMonsters = new ArrayList<>();
+		heroesAndMonsters.add(monsters);
+		heroesAndMonsters.add(heroes);
+
+		List<String> everyoneInOneList = list(heroesAndMonsters)
+				.bind(a -> list(a)).toJavaList();
+
+		assertThat(everyoneInOneList,
+				is(equalTo(list("orc","troll","dragon", "fighter", "thief", "wizard").toJavaList())));
+	}
+
 }

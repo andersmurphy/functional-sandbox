@@ -2,6 +2,7 @@ package com.andersmurphy.functional.sandbox.linkedlist;
 
 import org.junit.Test;
 
+import static fj.data.List.list;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -19,6 +20,15 @@ public class LinkedListExampleTest {
 		int actual = numbers.foldLeft((x, y) -> x + y, 0);
 
 		assertThat(actual, is(equalTo(15)));
+	}
+
+	@Test
+	public void using_bind_flatten_a_list_of_lists() throws Exception {
+		fj.data.List<fj.data.List<String>> monsters =
+				list(list("orc","troll","dragon"),list("fighter", "thief", "wizard"));
+
+		assertThat(list(monsters).bind(a -> a).toJavaList(),
+				is(equalTo(list("orc","troll","dragon", "fighter", "thief", "wizard").toJavaList())));
 	}
 
 }
